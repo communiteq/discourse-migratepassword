@@ -8,8 +8,6 @@ Installation
 ============
 
 * Run `bundle exec rake plugin:install repo=http://github.com/discoursehosting/discourse-migratepassword` in your discourse directory
-* In development mode, run `bundle exec rake assets:clean`
-* In production, recompile your assets: `bundle exec rake assets:precompile`
 * Restart Discourse
 
 Usage
