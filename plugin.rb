@@ -12,6 +12,7 @@
 # for Phorum                   #{password}         md5(pass)
 # for Wordpress                #{password}         phpass(8).crypt(pass)
 
+gem 'bcrypt', '3.1.3'
 
 require 'digest'
 
@@ -103,7 +104,12 @@ after_initialize do
         def self.check_all(password, crypted_pass)
             AlternativePassword::check_vbulletin(password, crypted_pass) ||
             AlternativePassword::check_md5(password, crypted_pass) ||
-            AlternativePassword::check_wordpress(password, crypted_pass) 
+            AlternativePassword::check_wordpress(password, crypted_pass) ||
+            AlternativePassword::check_bcrypt(password, crypted_pass) 
+        end
+
+        def self.check_bcrypt(password, crypted_pass)
+            BCrypt::Password.new(crypted_pass) == password
         end
 
         def self.check_vbulletin(password, crypted_pass)
