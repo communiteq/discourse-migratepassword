@@ -105,11 +105,16 @@ after_initialize do
             AlternativePassword::check_vbulletin(password, crypted_pass) ||
             AlternativePassword::check_md5(password, crypted_pass) ||
             AlternativePassword::check_wordpress(password, crypted_pass) ||
-            AlternativePassword::check_bcrypt(password, crypted_pass) 
+            AlternativePassword::check_bcrypt(password, crypted_pass) ||
+            AlternativePassword::check_sha256(password, crypted_pass) 
         end
 
         def self.check_bcrypt(password, crypted_pass)
-            BCrypt::Password.new(crypted_pass) == password
+            begin
+              BCrypt::Password.new(crypted_pass) == password
+            rescue
+              false
+            end
         end
 
         def self.check_vbulletin(password, crypted_pass)
@@ -125,6 +130,12 @@ after_initialize do
             hasher = WordpressHash.new(8)
             hasher.check(password, crypted_pass)
         end
+
+        def self.check_sha256(password, crypted_pass)
+            sha256 = Digest::SHA256.new
+            sha256.update password
+            crypted_pass == sha256.hexdigest
+      end
     end
  
     class ::User
