@@ -103,6 +103,7 @@ after_initialize do
  
         def self.check_all(password, crypted_pass)
             AlternativePassword::check_vbulletin(password, crypted_pass) ||
+            AlternativePassword::check_ipb(password, crypted_pass) ||
             AlternativePassword::check_md5(password, crypted_pass) ||
             AlternativePassword::check_wordpress(password, crypted_pass) ||
             AlternativePassword::check_bcrypt(password, crypted_pass) ||
@@ -124,6 +125,11 @@ after_initialize do
 
         def self.check_md5(password, crypted_pass)
             crypted_pass == Digest::MD5.hexdigest(password)
+        end
+
+        def self.check_ipb(password, crypted_pass)
+            salt, hash = crypted_pass.split(':', 2)
+            !salt.nil? && hash == Digest::MD5.hexdigest(Digest::MD5.hexdigest(salt) + Digest::MD5.hexdigest(password))
         end
 
         def self.check_wordpress(password, crypted_pass)
