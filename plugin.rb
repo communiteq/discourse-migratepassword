@@ -1,6 +1,6 @@
 # name: discourse-migratepassword
 # about: enable alternative password hashes
-# version: 0.4
+# version: 0.5
 # authors: Jens Maier and Michael@discoursehosting.com
  
 # uses phpass-ruby https://github.com/uu59/phpass-ruby
@@ -8,9 +8,10 @@
 # Usage:
 # When migrating, store a custom field with the user containing the crypted password
 
-# for vBulletin this should be #{password}:#{salt} md5(md5(pass) + salt)
-# for Phorum                   #{password}         md5(pass)
-# for Wordpress                #{password}         phpass(8).crypt(pass)
+# for vBulletin this should be #{password}:#{salt}      md5(md5(pass) + salt)
+# for Phorum                   #{password}              md5(pass)
+# for Wordpress                #{password}              phpass(8).crypt(pass)
+# for SMF                      #{username}:#{password}  sha1(user+pass)
 
 gem 'bcrypt', '3.1.3'
 
@@ -91,19 +92,24 @@ after_initialize do
     module ::AlternativePassword
         def confirm_password?(password)
             return true if super
+puts "### 1"
             return false unless self.custom_fields.has_key?('import_pass')
+puts "### 2"
 
             if AlternativePassword::check_all(password, self.custom_fields['import_pass'])
+puts "### 3"
                 self.password = password
                 self.custom_fields.delete('import_pass')
                 return save
             end
+puts "### 4"
             false
         end
  
         def self.check_all(password, crypted_pass)
             AlternativePassword::check_vbulletin(password, crypted_pass) ||
             AlternativePassword::check_ipb(password, crypted_pass) ||
+            AlternativePassword::check_smf(password, crypted_pass) ||
             AlternativePassword::check_md5(password, crypted_pass) ||
             AlternativePassword::check_wordpress(password, crypted_pass) ||
             AlternativePassword::check_bcrypt(password, crypted_pass) ||
@@ -125,6 +131,15 @@ after_initialize do
 
         def self.check_md5(password, crypted_pass)
             crypted_pass == Digest::MD5.hexdigest(password)
+        end
+
+        def self.check_smf(password, crypted_pass)
+            user, hash = crypted_pass.split(':', 2)
+puts "### #{user} hash #{hash} CP #{crypted_pass}"
+            sha1 = Digest::SHA1.new
+            sha1.update user + password
+puts "### #{sha1.hexdigest}"
+            hash == sha1.hexdigest
         end
 
         def self.check_ipb(password, crypted_pass)
