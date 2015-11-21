@@ -92,17 +92,13 @@ after_initialize do
     module ::AlternativePassword
         def confirm_password?(password)
             return true if super
-puts "### 1"
             return false unless self.custom_fields.has_key?('import_pass')
-puts "### 2"
 
             if AlternativePassword::check_all(password, self.custom_fields['import_pass'])
-puts "### 3"
                 self.password = password
                 self.custom_fields.delete('import_pass')
                 return save
             end
-puts "### 4"
             false
         end
  
@@ -135,10 +131,8 @@ puts "### 4"
 
         def self.check_smf(password, crypted_pass)
             user, hash = crypted_pass.split(':', 2)
-puts "### #{user} hash #{hash} CP #{crypted_pass}"
             sha1 = Digest::SHA1.new
             sha1.update user + password
-puts "### #{sha1.hexdigest}"
             hash == sha1.hexdigest
         end
 
