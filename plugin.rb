@@ -8,7 +8,7 @@
 # Usage:
 # When migrating, store a custom field with the user containing the crypted password
 
-# for vBulletin this should be #{password}:#{salt}      md5(md5(pass) + salt)
+# for vBulletin this should be #{salt}:#{password}      md5(md5(pass) + salt)
 # for Phorum                   #{password}              md5(pass)
 # for Wordpress                #{password}              phpass(8).crypt(pass)
 # for SMF                      #{username}:#{password}  sha1(user+pass)
