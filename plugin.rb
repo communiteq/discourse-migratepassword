@@ -9,6 +9,7 @@
 # When migrating, store a custom field with the user containing the crypted password
 
 # for vBulletin this should be #{password}:#{salt}      md5(md5(pass) + salt)
+# for vBulletin5               #{token}                 bcrypt(md5(pass))
 # for Phorum                   #{password}              md5(pass)
 # for Wordpress                #{password}              phpass(8).crypt(pass)
 # for SMF                      #{username}:#{password}  sha1(user+pass)
@@ -105,6 +106,7 @@ after_initialize do
  
         def self.check_all(password, crypted_pass)
             AlternativePassword::check_vbulletin(password, crypted_pass) ||
+            AlternativePassword::check_vbulletin5(password, crypted_pass) ||
             AlternativePassword::check_ipb(password, crypted_pass) ||
             AlternativePassword::check_smf(password, crypted_pass) ||
             AlternativePassword::check_md5(password, crypted_pass) ||
@@ -125,6 +127,12 @@ after_initialize do
         def self.check_vbulletin(password, crypted_pass)
             hash, salt = crypted_pass.split(':', 2)
             !salt.nil? && hash == Digest::MD5.hexdigest(Digest::MD5.hexdigest(password) + salt)
+        end
+
+        def self.check_vbulletin5(password, crypted_pass)
+            # replace $2y$ with $2a$ see http://stackoverflow.com/a/20981781
+            crypted_pass.gsub! /^\$2y\$/, '$2a$'
+            BCrypt::Password.new(crypted_pass) == Digest::MD5.hexdigest(password)
         end
 
         def self.check_md5(password, crypted_pass)
