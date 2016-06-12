@@ -1,6 +1,6 @@
 # name: discourse-migratepassword
 # about: enable alternative password hashes
-# version: 0.5
+# version: 0.6
 # authors: Jens Maier and Michael@discoursehosting.com
  
 # uses phpass-ruby https://github.com/uu59/phpass-ruby
