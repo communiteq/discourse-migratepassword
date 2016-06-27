@@ -1,6 +1,6 @@
 # name: discourse-migratepassword
 # about: enable alternative password hashes
-# version: 0.6
+# version: 0.6a
 # authors: Jens Maier and Michael@discoursehosting.com
  
 # uses phpass-ruby https://github.com/uu59/phpass-ruby
@@ -132,7 +132,11 @@ after_initialize do
         def self.check_vbulletin5(password, crypted_pass)
             # replace $2y$ with $2a$ see http://stackoverflow.com/a/20981781
             crypted_pass.gsub! /^\$2y\$/, '$2a$'
-            BCrypt::Password.new(crypted_pass) == Digest::MD5.hexdigest(password)
+            begin
+              BCrypt::Password.new(crypted_pass) == Digest::MD5.hexdigest(password)
+            rescue
+              false
+            end
         end
 
         def self.check_md5(password, crypted_pass)
