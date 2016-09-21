@@ -110,15 +110,16 @@ after_initialize do
             AlternativePassword::check_ipb(password, crypted_pass) ||
             AlternativePassword::check_smf(password, crypted_pass) ||
             AlternativePassword::check_md5(password, crypted_pass) ||
-            AlternativePassword::check_wordpress(password, crypted_pass) ||
             AlternativePassword::check_bcrypt(password, crypted_pass) ||
             AlternativePassword::check_sha256(password, crypted_pass) ||
+            AlternativePassword::check_wordpress(password, crypted_pass) ||
             AlternativePassword::check_wbblite(password, crypted_pass) 
         end
 
         def self.check_bcrypt(password, crypted_pass)
             begin
-              BCrypt::Password.new(crypted_pass) == password
+              # allow salt:hash as well as hash
+              BCrypt::Password.new(crypted_pass.rpartition(':').last) == password
             rescue
               false
             end
@@ -151,13 +152,15 @@ after_initialize do
         end
 
         def self.check_ipb(password, crypted_pass)
-            salt, hash = crypted_pass.split(':', 2)
+            # we can't use split since the salts may contain a colon
+            salt = crypted_pass.rpartition(':').first
+            hash = crypted_pass.rpartition(':').last
             !salt.nil? && hash == Digest::MD5.hexdigest(Digest::MD5.hexdigest(salt) + Digest::MD5.hexdigest(password))
         end
 
         def self.check_wordpress(password, crypted_pass)
             hasher = WordpressHash.new(8)
-            hasher.check(password, crypted_pass)
+            hasher.check(password, crypted_pass.rpartition(':').last)
         end
 
         def self.check_sha256(password, crypted_pass)
