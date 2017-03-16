@@ -16,6 +16,7 @@
 # for WBBlite                  #{salt}:#{hash}          sha1(salt+sha1(salt+sha1(pass)))
 
 gem 'bcrypt', '3.1.3'
+gem 'unix-crypt', '1.3.0', :require_name => 'unix_crypt'
 
 require 'digest'
 
@@ -113,7 +114,8 @@ after_initialize do
             AlternativePassword::check_bcrypt(password, crypted_pass) ||
             AlternativePassword::check_sha256(password, crypted_pass) ||
             AlternativePassword::check_wordpress(password, crypted_pass) ||
-            AlternativePassword::check_wbblite(password, crypted_pass) 
+            AlternativePassword::check_wbblite(password, crypted_pass) ||
+            AlternativePassword::check_unixcrypt(password, crypted_pass)
         end
 
         def self.check_bcrypt(password, crypted_pass)
@@ -173,6 +175,10 @@ after_initialize do
             salt, hash = crypted_pass.split(':', 2)
             sha1 = Digest::SHA1.hexdigest(salt + Digest::SHA1.hexdigest(salt + Digest::SHA1.hexdigest(password)))
             hash == sha1
+        end
+
+        def self.check_unixcrypt(password, crypted_pass)
+            UnixCrypt.valid?(password, crypted_pass)
         end
     end
  
