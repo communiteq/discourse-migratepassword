@@ -35,6 +35,7 @@ require 'digest'
     end
 
     def check(pw, hash)
+      return false unless hash.start_with?('$P$')
       crypt(pw, hash) == hash
     end
 
