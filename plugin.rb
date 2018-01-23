@@ -116,7 +116,9 @@ after_initialize do
             AlternativePassword::check_sha256(password, crypted_pass) ||
             AlternativePassword::check_wordpress(password, crypted_pass) ||
             AlternativePassword::check_wbblite(password, crypted_pass) ||
-            AlternativePassword::check_unixcrypt(password, crypted_pass)
+            AlternativePassword::check_unixcrypt(password, crypted_pass) ||
+            AlternativePassword::check_joomla_md5(password, crypted_pass) ||
+            AlternativePassword::check_joomla_3_2(password, crypted_pass)
         end
 
         def self.check_bcrypt(password, crypted_pass)
@@ -180,6 +182,20 @@ after_initialize do
 
         def self.check_unixcrypt(password, crypted_pass)
             UnixCrypt.valid?(password, crypted_pass)
+        end
+     
+        def self.check_joomla_md5(password, crypted_pass)
+            hash, salt = crypted_pass.split(':', 2)
+            !salt.nil? && hash == Digest::MD5.hexdigest(password + salt)
+        end
+
+        def self.check_joomla_3_2(password, crypted_pass)
+            crypted_pass.gsub! /^\$2y\$/, '$2a$'
+            begin
+              BCrypt::Password.new(crypted_pass) == password
+            rescue
+              false
+            end
         end
     end
  
