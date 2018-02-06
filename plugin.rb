@@ -1,7 +1,8 @@
 # name: discourse-migratepassword
 # about: enable alternative password hashes
-# version: 0.6a
+# version: 0.7
 # authors: Jens Maier and Michael@discoursehosting.com
+# url: https://github.com/discoursehosting/discourse-migratepassword
  
 # uses phpass-ruby https://github.com/uu59/phpass-ruby
 
@@ -21,6 +22,8 @@
 
 gem 'bcrypt', '3.1.3'
 gem 'unix-crypt', '1.3.0', :require_name => 'unix_crypt'
+
+enabled_site_setting :migratepassword_enabled
 
 require 'digest'
 
@@ -99,12 +102,18 @@ after_initialize do
     module ::AlternativePassword
         def confirm_password?(password)
             return true if super
+            return false unless SiteSetting.migratepassword_enabled
             return false unless self.custom_fields.has_key?('import_pass')
 
             if AlternativePassword::check_all(password, self.custom_fields['import_pass'])
                 self.password = password
                 self.custom_fields.delete('import_pass')
-                return save
+
+                if SiteSetting.migratepassword_allow_insecure_passwords
+                    return save(validate: false)
+                else
+                    return save
+                end
             end
             false
         end

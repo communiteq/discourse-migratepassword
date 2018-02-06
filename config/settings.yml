@@ -1,0 +1,7 @@
+plugins:
+  migratepassword_enabled:
+    default: true
+    client: false
+  migratepassword_allow_insecure_passwords:
+    default: false
+    client: false

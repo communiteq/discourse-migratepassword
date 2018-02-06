@@ -1,0 +1,4 @@
+en:
+  site_settings:
+    migratepassword_enabled: 'Enable MigratePassword plugin.'
+    migratepassword_allow_insecure_passwords: 'Allow legacy passwords that do not conform to the Discourse password requirements.' 
