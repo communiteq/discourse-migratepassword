@@ -13,7 +13,11 @@
 # for Phorum                   #{password}              md5(pass)
 # for Wordpress                #{password}              phpass(8).crypt(pass)
 # for SMF                      #{username}:#{password}  sha1(user+pass)
+# for IPB                      #{salt}:#{hash}          md5(md5(salt)+md5(pass))
 # for WBBlite                  #{salt}:#{hash}          sha1(salt+sha1(salt+sha1(pass)))
+# for Joomla                   #{hash}:#{salt}          md5(pass+salt)
+# for Joomla 3.2               #{password}              bcrypt(pass)
+
 
 gem 'bcrypt', '3.1.3'
 gem 'unix-crypt', '1.3.0', :require_name => 'unix_crypt'
