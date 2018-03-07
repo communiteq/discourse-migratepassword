@@ -43,10 +43,8 @@ require 'digest'
 
     def check(pw, hash)
       hash.gsub! /^\$H\$/, '$P$'
-      puts 'Checking #{hash}'
       return false unless hash.start_with?('$P$')
       crypted = crypt(pw,hash)
-      puts 'Crypted #{crypted}'
       crypted == hash
     end
 
