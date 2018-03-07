@@ -1,10 +1,8 @@
 # name: discourse-migratepassword
 # about: enable alternative password hashes
-# version: 0.7
+# version: 0.71
 # authors: Jens Maier and Michael@discoursehosting.com
 # url: https://github.com/discoursehosting/discourse-migratepassword
- 
-# uses phpass-ruby https://github.com/uu59/phpass-ruby
 
 # Usage:
 # When migrating, store a custom field with the user containing the crypted password
@@ -18,6 +16,8 @@
 # for WBBlite                  #{salt}:#{hash}          sha1(salt+sha1(salt+sha1(pass)))
 # for Joomla                   #{hash}:#{salt}          md5(pass+salt)
 # for Joomla 3.2               #{password}              bcrypt(pass)
+
+#This will be applied at runtime, as authentication is attempted.  It does not apply at migration time.
 
 
 gem 'bcrypt', '3.1.3'
@@ -42,8 +42,10 @@ require 'digest'
     end
 
     def check(pw, hash)
+      hash.gsub! /^\$H\$/, '$P$'
       return false unless hash.start_with?('$P$')
-      crypt(pw, hash) == hash
+      crypted = crypt(pw,hash)
+      crypted == hash
     end
 
     private
