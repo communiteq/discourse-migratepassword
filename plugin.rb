@@ -16,6 +16,7 @@
 # for WBBlite                  #{salt}:#{hash}          sha1(salt+sha1(salt+sha1(pass)))
 # for Joomla                   #{hash}:#{salt}          md5(pass+salt)
 # for Joomla 3.2               #{password}              bcrypt(pass)
+# for Question2Answer          #{salt}:#{passcheck}     sha1 (left(salt,8) + pass + right(salt,8))
 
 #This will be applied at runtime, as authentication is attempted.  It does not apply at migration time.
 
@@ -133,7 +134,8 @@ after_initialize do
             AlternativePassword::check_wbblite(password, crypted_pass) ||
             AlternativePassword::check_unixcrypt(password, crypted_pass) ||
             AlternativePassword::check_joomla_md5(password, crypted_pass) ||
-            AlternativePassword::check_joomla_3_2(password, crypted_pass)
+            AlternativePassword::check_joomla_3_2(password, crypted_pass) ||
+            AlternativePassword::check_q2a(password, crypted_pass)
         end
 
         def self.check_bcrypt(password, crypted_pass)
@@ -202,6 +204,12 @@ after_initialize do
         def self.check_joomla_md5(password, crypted_pass)
             hash, salt = crypted_pass.split(':', 2)
             !salt.nil? && hash == Digest::MD5.hexdigest(password + salt)
+        end
+
+        def self.check_q2a(password, crypted_pass)
+            salt, hash = crypted_pass.split(':', 2)
+            sha1 = Digest::SHA1.hexdigest(salt[0..7] + password + salt[-8..-1])
+            hash == sha1
         end
 
         def self.check_joomla_3_2(password, crypted_pass)
