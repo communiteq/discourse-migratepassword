@@ -208,7 +208,9 @@ after_initialize do
 
         def self.check_q2a(password, crypted_pass)
             salt, hash = crypted_pass.split(':', 2)
-            sha1 = Digest::SHA1.hexdigest(salt[0..7] + password + salt[-8..-1])
+            salt_prefix = salt[0..7] || ""
+            salt_postfix = salt[-8..-1] || ""
+            sha1 = Digest::SHA1.hexdigest(salt_prefix + password + salt_postfix)
             hash == sha1
         end
 
