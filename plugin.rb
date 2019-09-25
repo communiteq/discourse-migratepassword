@@ -17,6 +17,7 @@
 # for Joomla                   #{hash}:#{salt}          md5(pass+salt)
 # for Joomla 3.2               #{password}              bcrypt(pass)
 # for Question2Answer          #{salt}:#{passcheck}     sha1 (left(salt,8) + pass + right(salt,8))
+# for Drupal 7                 #{password}              sha512(sha512(salt + pass) + pass) x iterations from salt.
 
 #This will be applied at runtime, as authentication is attempted.  It does not apply at migration time.
 
@@ -27,6 +28,8 @@ gem 'unix-crypt', '1.3.0', :require_name => 'unix_crypt'
 enabled_site_setting :migratepassword_enabled
 
 require 'digest'
+require 'openssl'
+require "base64"
 
   class WordpressHash
     def initialize(stretch=8)
@@ -101,6 +104,103 @@ require 'digest'
   end
 
 
+  class DrupalSHA512Hash
+
+    def initialize()
+      @drupal_min_hash_count = 7
+      @drupal_max_hash_count = 30
+      @drupal_hash_length = 55
+      @itoa64 = './0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+      @hash = Digest::SHA2.new(512)
+    end
+
+    def check(password, crypted_pass)
+      return false if password.nil? or crypted_pass.nil?
+
+      crypt(password, crypted_pass[0..11]) == crypted_pass
+    end
+
+    def crypt(password, setting)
+      if setting[0] != '$' or setting[2] != '$'
+        # Wrong hash format
+        return false
+      end
+
+      count_log2 = @itoa64.index(setting[3])
+
+      if count_log2 < @drupal_min_hash_count or count_log2 > @drupal_max_hash_count
+        return false
+      end
+
+      salt = setting[4..4 + 7]
+
+      if salt.length != 8
+        return false
+      end
+
+      iterations = 2 ** count_log2
+
+      pass_hash = @hash.digest(salt + password)
+
+      1.upto(iterations) do |i|
+        pass_hash = @hash.digest(pass_hash.force_encoding(Encoding::UTF_8) + password)
+      end
+
+      hash_length = pass_hash.length
+
+      output = setting + encode64(pass_hash, hash_length)
+
+      if output.length != 98
+        return false
+      end
+
+      return output[0..(@drupal_hash_length - 1)]
+    end
+
+    def encode64(input, count)
+      output = ''
+      i = 0
+      while true
+        value = (input[i]).ord
+
+        i += 1
+
+        output = output + @itoa64[value & 0x3f]
+        if i < count
+          value |= (input[i].ord) << 8
+        end
+
+        output = output + @itoa64[(value >> 6) & 0x3f]
+
+        if i >= count
+          break
+        end
+
+        i += 1
+
+        if i < count
+          value |= (input[i].ord) << 16
+        end
+
+        output = output + @itoa64[(value >> 12) & 0x3f]
+
+        if i >= count
+          break
+        end
+
+        i += 1
+
+        output = output + @itoa64[(value >> 18) & 0x3f]
+
+        if i >= count
+          break
+        end
+
+      end
+      return output
+    end
+  end
+
 after_initialize do
  
     module ::AlternativePassword
@@ -135,7 +235,8 @@ after_initialize do
             AlternativePassword::check_unixcrypt(password, crypted_pass) ||
             AlternativePassword::check_joomla_md5(password, crypted_pass) ||
             AlternativePassword::check_joomla_3_2(password, crypted_pass) ||
-            AlternativePassword::check_q2a(password, crypted_pass)
+            AlternativePassword::check_q2a(password, crypted_pass) ||
+            AlternativePassword::check_drupal7(password, crypted_pass)
         end
 
         def self.check_bcrypt(password, crypted_pass)
@@ -221,6 +322,14 @@ after_initialize do
             rescue
               false
             end
+        end
+
+        def self.check_drupal7(password, crypted_pass)
+            begin
+              DrupalSHA512Hash.new.check(password, crypted_pass)
+            rescue
+              false
+             end
         end
     end
  
