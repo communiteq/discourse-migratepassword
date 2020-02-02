@@ -202,7 +202,7 @@ require "base64"
   end
 
 after_initialize do
- 
+
     module ::AlternativePassword
         def confirm_password?(password)
             return true if super
@@ -221,7 +221,7 @@ after_initialize do
             end
             false
         end
- 
+
         def self.check_all(password, crypted_pass)
             AlternativePassword::check_vbulletin(password, crypted_pass) ||
             AlternativePassword::check_vbulletin5(password, crypted_pass) ||
@@ -236,7 +236,17 @@ after_initialize do
             AlternativePassword::check_joomla_md5(password, crypted_pass) ||
             AlternativePassword::check_joomla_3_2(password, crypted_pass) ||
             AlternativePassword::check_q2a(password, crypted_pass) ||
-            AlternativePassword::check_drupal7(password, crypted_pass)
+            AlternativePassword::check_drupal7(password, crypted_pass) ||
+            AlternativePassword::check_devise(password, crypted_pass)
+        end
+
+        def self.check_devise(password, crypted_pass)
+            begin
+              bcrypt = BCrypt::Password.new(crypted_pass)
+              BCrypt::Engine.hash_secret(password, bcrypt.salt) == crypted_pass
+            rescue
+              false
+            end
         end
 
         def self.check_bcrypt(password, crypted_pass)
@@ -301,7 +311,7 @@ after_initialize do
         def self.check_unixcrypt(password, crypted_pass)
             UnixCrypt.valid?(password, crypted_pass)
         end
-     
+
         def self.check_joomla_md5(password, crypted_pass)
             hash, salt = crypted_pass.split(':', 2)
             !salt.nil? && hash == Digest::MD5.hexdigest(password + salt)
@@ -332,9 +342,9 @@ after_initialize do
              end
         end
     end
- 
+
     class ::User
         prepend AlternativePassword
     end
- 
+
 end
