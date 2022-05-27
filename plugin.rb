@@ -1,7 +1,7 @@
 # name: discourse-migratepassword
 # about: enable alternative password hashes
-# version: 0.71
-# authors: Jens Maier and Michael@discoursehosting.com
+# version: 0.8
+# authors: Jens Maier and michael@communiteq.com
 # url: https://github.com/discoursehosting/discourse-migratepassword
 
 # Usage:
@@ -24,6 +24,10 @@
 
 gem 'bcrypt', '3.1.3'
 gem 'unix-crypt', '1.3.0', :require_name => 'unix_crypt'
+
+gem 'ffi', '1.15.5', require: false
+gem 'ffi-compiler', '1.0.1', require: false
+gem 'argon2', '2.1.1'
 
 enabled_site_setting :migratepassword_enabled
 
@@ -237,7 +241,17 @@ after_initialize do
             AlternativePassword::check_joomla_3_2(password, crypted_pass) ||
             AlternativePassword::check_q2a(password, crypted_pass) ||
             AlternativePassword::check_drupal7(password, crypted_pass) ||
-            AlternativePassword::check_devise(password, crypted_pass)
+            AlternativePassword::check_devise(password, crypted_pass) ||
+            AlternativePassword::check_argon(password, crypted_pass)
+        end
+
+        def self.check_argon(password, crypted_pass)
+          begin
+            return false unless crypted_pass[0..9] == '$argon2id$'
+            return Argon2::Password.verify_password(password, crypted_pass)
+          rescue
+            false
+          end
         end
 
         def self.check_devise(password, crypted_pass)
