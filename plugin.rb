@@ -23,7 +23,7 @@
 
 
 gem 'bcrypt', '3.1.3'
-gem 'unix-crypt', '1.3.0', :require_name => 'unix_crypt'
+gem 'unix-crypt', '1.3.0', require: 'unix_crypt'
 
 gem 'ffi', '1.15.5', require: false
 gem 'ffi-compiler', '1.0.1', require: false
