@@ -1,6 +1,6 @@
 # name: discourse-migratepassword
 # about: enable alternative password hashes
-# version: 0.9
+# version: 0.10
 # authors: Jens Maier and michael@communiteq.com
 # url: https://github.com/discoursehosting/discourse-migratepassword
 
