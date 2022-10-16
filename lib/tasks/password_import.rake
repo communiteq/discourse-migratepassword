@@ -5,7 +5,8 @@ namespace :migratepassword do
   task :import, [:csv_file] => [:environment] do |_, args|
     abort "Please specify the CSV file to import" if args[:csv_file].blank?
 
-    CSV.foreach(args[:csv_file], headers: true) do |new_user|
+    content = File.open(args[:csv_file]).read.sub("\xEF\xBB\xBF".force_encoding("UTF-8"), "")
+    CSV.parse(content, headers: true) do |new_user|
       user = User.find_by_email(new_user['user_email'])
       if user
         puts "User with email address #{new_user['user_email']} already exists"
