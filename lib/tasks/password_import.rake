@@ -27,6 +27,13 @@ namespace :migratepassword do
           puts "Error creating user #{user.name}: username #{user.username}, email #{user.email}"
         end
       end
+      if user.id && new_user['blocked'] == 'true'
+        puts "Suspending and logging out #{user.username}"
+        user.suspended_till = DateTime.now + 10000.days
+        user.suspended_at = DateTime.now
+        user.save!
+        user.logged_out
+      end
       if user.id && new_user['import_pass']
         puts "Setting password for #{user.username}"
         user.custom_fields['import_pass'] = new_user['import_pass'] 
