@@ -1,6 +1,6 @@
 # name: discourse-migratepassword
 # about: enable alternative password hashes
-# version: 0.10
+# version: 0.11
 # authors: Jens Maier and michael@communiteq.com
 # url: https://github.com/discoursehosting/discourse-migratepassword
 
@@ -27,7 +27,7 @@ gem 'unix-crypt', '1.3.0', :require_name => 'unix_crypt'
 
 gem 'ffi', '1.15.5', require: false
 gem 'ffi-compiler', '1.0.1', require: false
-gem 'argon2', '2.1.1'
+gem 'argon2', '2.2.0'
 
 enabled_site_setting :migratepassword_enabled
 
