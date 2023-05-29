@@ -20,6 +20,8 @@ user.custom_fields['import_pass'] = '5f4dcc3b5aa765d61d8327deb882cf99'
 user.save
 ```
 
+* For FluxBB users, I have included a script which should be run after the migration script. This script simply adds the 'import_pass' custom field for you for all users that it finds.
+
 Rake task
 =========
 
