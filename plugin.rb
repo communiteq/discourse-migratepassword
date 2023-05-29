@@ -232,6 +232,7 @@ after_initialize do
             AlternativePassword::check_ipb(password, crypted_pass) ||
             AlternativePassword::check_smf(password, crypted_pass) ||
             AlternativePassword::check_md5(password, crypted_pass) ||
+            AlternativePassword::check_sha1(password, crypted_pass) ||
             AlternativePassword::check_bcrypt(password, crypted_pass) ||
             AlternativePassword::check_sha256(password, crypted_pass) ||
             AlternativePassword::check_wordpress(password, crypted_pass) ||
@@ -289,6 +290,10 @@ after_initialize do
 
         def self.check_md5(password, crypted_pass)
             crypted_pass == Digest::MD5.hexdigest(password)
+        end
+
+        def self.check_sha1(password, crypted_pass)
+            crypted_pass == Digest::SHA1.hexdigest(password)
         end
 
         def self.check_smf(password, crypted_pass)
