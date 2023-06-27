@@ -1,6 +1,6 @@
 # name: discourse-migratepassword
 # about: enable alternative password hashes
-# version: 0.11
+# version: 0.11.1
 # authors: Jens Maier and michael@communiteq.com
 # url: https://github.com/discoursehosting/discourse-migratepassword
 
@@ -125,7 +125,7 @@ require "base64"
     end
 
     def crypt(password, setting)
-      if setting[0] != '$' or setting[2] != '$'
+      if setting[0] != '$' or setting[1] != 'S' or setting[2] != '$'
         # Wrong hash format
         return false
       end
