@@ -121,7 +121,13 @@ require "base64"
     def check(password, crypted_pass)
       return false if password.nil? or crypted_pass.nil?
 
-      crypt(password, crypted_pass[0..11]) == crypted_pass
+      # passwords migrated from drupal 6 start with a 'U' and crypt the MD5-hashed password
+      if crypted_pass[0] == 'U'
+        crypt(Digest::MD5.hexdigest(password), crypted_pass[1..12]) == crypted_pass[1..-1]
+      else
+        # normal drupal 7 passwords
+        crypt(password, crypted_pass[0..11]) == crypted_pass
+      end
     end
 
     def crypt(password, setting)
