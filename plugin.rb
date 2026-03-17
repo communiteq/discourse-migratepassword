@@ -252,9 +252,11 @@ after_initialize do
         end
 
         def self.check_argon(password, crypted_pass)
-          begin
             return false unless crypted_pass[0..9] == '$argon2id$'
-            return Argon2::Password.verify_password(password, crypted_pass)
+            # Try plain password first (standard argon2id systems)
+            return true if Argon2::Password.verify_password(password, crypted_pass)
+            # Fall back to MD5-prehashed password (vBulletin 5 MD5s client-side before hashing)
+            return Argon2::Password.verify_password(Digest::MD5.hexdigest(password), crypted_pass)
           rescue
             false
           end
