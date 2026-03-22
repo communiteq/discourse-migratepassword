@@ -252,6 +252,7 @@ after_initialize do
         end
 
         def self.check_argon(password, crypted_pass)
+          begin
             return false unless crypted_pass[0..9] == '$argon2id$'
             # Try plain password first (standard argon2id systems)
             return true if Argon2::Password.verify_password(password, crypted_pass)
