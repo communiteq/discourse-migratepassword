@@ -1,6 +1,6 @@
 # name: discourse-migratepassword
 # about: enable alternative password hashes
-# version: 0.11.4
+# version: 0.11.5
 # authors: Communiteq
 # url: https://github.com/discoursehosting/discourse-migratepassword
 
@@ -211,6 +211,13 @@ require "base64"
   end
 
 after_initialize do
+
+    DiscourseEvent.on(:user_logged_in) do |user|
+      next unless user&.custom_fields&.key?("import_pass")
+
+      user.custom_fields.delete("import_pass")
+      user.save_custom_fields
+    end
 
     module ::AlternativePassword
         def confirm_password?(password)
