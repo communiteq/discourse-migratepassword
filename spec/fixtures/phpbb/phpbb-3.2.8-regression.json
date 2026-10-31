@@ -1,0 +1,8 @@
+{
+    "html_bcrypt": {
+        "profile": "legacy:patchwork",
+        "original": "Synthetic-Tea<&\">-2026",
+        "prepared": "Synthetic-Tea&lt;&amp;&quot;&gt;-2026",
+        "hash": "$2y$10$2hrF8ORaYaSyc7OGrikVIelrAk5c0BjqmIAWLRDAbY5duiJygkQcy"
+    }
+}

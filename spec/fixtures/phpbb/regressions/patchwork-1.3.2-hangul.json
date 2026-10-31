@@ -1,0 +1,74 @@
+{
+    "jamo_tbase_0": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\u1100\u1161\u11a7-2026",
+        "prepared": "Synthetic-\uac00-2026",
+        "hash": "$2y$10$4eP9gEGfG5w1r4ElGXtKB.mLRxwYS8s7JYW9s.vLg349\/Rk3.tlgS",
+        "alternate": "Synthetic-\uac00-2026",
+        "source_alternate": true
+    },
+    "jamo_tbase_1": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\uac00-2026",
+        "prepared": "Synthetic-\uac00-2026",
+        "hash": "$2y$10$GlE4NsLizm\/l\/\/HxtLy2B.Ur\/mxN7zwn4y242ZVkYZWOWZ8U0SIQe",
+        "alternate": "Synthetic-\u1100\u1161\u11a7-2026",
+        "source_alternate": true
+    },
+    "syllable_tbase_0": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\uac00\u11a7-2026",
+        "prepared": "Synthetic-\uac00-2026",
+        "hash": "$2y$10$WVPK5QDKpJqYg7OtUx6d5.aHOHCx9Am9k2Ot\/XxuP198lf.V8LcyG",
+        "alternate": "Synthetic-\uac00-2026",
+        "source_alternate": true
+    },
+    "syllable_tbase_1": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\uac00-2026",
+        "prepared": "Synthetic-\uac00-2026",
+        "hash": "$2y$10$.4ml62a1a0OklioUrkYtWukle114H9O7fcPwGM7nC\/t7nJV6MVwcK",
+        "alternate": "Synthetic-\uac00\u11a7-2026",
+        "source_alternate": true
+    },
+    "tbase_then_trailing_0": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\u1100\u1161\u11a7\u11a8-2026",
+        "prepared": "Synthetic-\uac00\u11a8-2026",
+        "hash": "$2y$10$2HIDYjw\/tzzYBqPx50NNR.hqVHnGHiq\/WQWN0aMH4wdawWSR6ak8K",
+        "alternate": "Synthetic-\uac00\u11a8-2026",
+        "source_alternate": false
+    },
+    "tbase_then_trailing_1": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\uac00\u11a8-2026",
+        "prepared": "Synthetic-\uac01-2026",
+        "hash": "$2y$10$rl1u1crfq6NgFYitQvYf9OYFh.L0UCwd25vSbweDgcPMr\/PoeO1\/G",
+        "alternate": "Synthetic-\u1100\u1161\u11a7\u11a8-2026",
+        "source_alternate": false
+    },
+    "blocked_tbase_0": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\u1100\u1161\u0301\u11a7-2026",
+        "prepared": "Synthetic-\uac00\u0301\u11a7-2026",
+        "hash": "$2y$10$Wk2TYJ4\/9gujA9yFBuql1e.\/XcN.tnPXSuZ6HO8hVc9FjNHDtmZcG",
+        "alternate": "Synthetic-\uac00\u0301\u11a7-2026",
+        "source_alternate": true
+    },
+    "blocked_tbase_1": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\uac00\u0301\u11a7-2026",
+        "prepared": "Synthetic-\uac00\u0301\u11a7-2026",
+        "hash": "$2y$10$8O4o6sidadyLhy\/HjmhvBO7DGaIShYOJ1OYZysY5r7onmqB6a7c72",
+        "alternate": "Synthetic-\u1100\u1161\u0301\u11a7-2026",
+        "source_alternate": true
+    }
+}

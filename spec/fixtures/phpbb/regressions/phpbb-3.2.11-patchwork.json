@@ -1,0 +1,110 @@
+{
+    "kaithi_0": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\ud804\udc99\ud804\udcba-2026",
+        "prepared": "Synthetic-\ud804\udc9a-2026",
+        "hash": "$2y$10$5kcOUCRdAPyyMmqP0.kX5uQIJLbX3Mo65Y0650J8pqAhkZLJoUcMK",
+        "alternate": "Synthetic-\ud804\udc9a-2026",
+        "source_alternate": true
+    },
+    "kaithi_1": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\ud804\udc9a-2026",
+        "prepared": "Synthetic-\ud804\udc9a-2026",
+        "hash": "$2y$10$aZ9f4FhwcI.mhlVPLLaTAOxwiSKdzBdWUXRHgqtRj\/saMiCe11khq",
+        "alternate": "Synthetic-\ud804\udc99\ud804\udcba-2026",
+        "source_alternate": true
+    },
+    "grantha_0": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\ud804\udf47\ud804\udf3e-2026",
+        "prepared": "Synthetic-\ud804\udf4b-2026",
+        "hash": "$2y$10$4vUKdo1eWUmLAglB8huJHuW643s8\/XadNZ\/sxxb5R9cjJmyNxSrkW",
+        "alternate": "Synthetic-\ud804\udf4b-2026",
+        "source_alternate": true
+    },
+    "grantha_1": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\ud804\udf4b-2026",
+        "prepared": "Synthetic-\ud804\udf4b-2026",
+        "hash": "$2y$10$Dnq9Y0TawuOouJUTT8dBXuSsoZ5EuR7W68vDhM1HaFxxWpLQG4rSS",
+        "alternate": "Synthetic-\ud804\udf47\ud804\udf3e-2026",
+        "source_alternate": true
+    },
+    "noncharacter_0": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\ufffe-2026",
+        "prepared": "Synthetic-\ufffe-2026",
+        "hash": "$2y$10$5l1X6zn6EXSu1ZrAiU6geOz3rntlFZrGiSCS5tuaz6UA67VReI5U.",
+        "alternate": "Synthetic-\ufffd-2026",
+        "source_alternate": false
+    },
+    "noncharacter_1": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\ufffd-2026",
+        "prepared": "Synthetic-\ufffd-2026",
+        "hash": "$2y$10$Tji.T9XGP0slNn.CzGYu8eSR7H3Jo6wzmFK7A55WDlE4ylM\/VY05q",
+        "alternate": "Synthetic-\ufffe-2026",
+        "source_alternate": false
+    },
+    "hangul_0": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\u1100\u1161\u11a8-2026",
+        "prepared": "Synthetic-\uac01-2026",
+        "hash": "$2y$10$8kpVCby1Ay5I.NpyoXVdp.mOASVVkJYzGruVfciAu14rm3rn.Cc1q",
+        "alternate": "Synthetic-\uac01-2026",
+        "source_alternate": true
+    },
+    "hangul_1": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-\uac01-2026",
+        "prepared": "Synthetic-\uac01-2026",
+        "hash": "$2y$10$emJ.DSFXdxKHjYtkAC9be.HNoy1FylcPRBDMq6C14hLgVMwnJQcv.",
+        "alternate": "Synthetic-\u1100\u1161\u11a8-2026",
+        "source_alternate": true
+    },
+    "ordering_0": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-a\u0301\u0323-2026",
+        "prepared": "Synthetic-\u1ea1\u0301-2026",
+        "hash": "$2y$10$WCvw6\/ddB3MwJ1iv4ZWz\/OHf4.3Wzrc3J25k2LcrKfkeePzlL4R1a",
+        "alternate": "Synthetic-a\u0323\u0301-2026",
+        "source_alternate": true
+    },
+    "ordering_1": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-a\u0323\u0301-2026",
+        "prepared": "Synthetic-\u1ea1\u0301-2026",
+        "hash": "$2y$10$bHi3RlGMcf8KnrFWPmBTHuMa6hpqAgQ3ul.qkloOAIjOWkRDZdSqm",
+        "alternate": "Synthetic-a\u0301\u0323-2026",
+        "source_alternate": true
+    },
+    "bcrypt_suffix_2y": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-Tea-&&&&&&&&&&&&&&",
+        "prepared": "Synthetic-Tea-&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;",
+        "hash": "$2y$10$JNl\/RHqBcDq1O94x6ohQKOwrYbTC1ub3bIxy5u1AG6CIcH6eTct1a",
+        "alternate": "Synthetic-Tea-&&&&&&&&&&&&&&\u00e9",
+        "source_alternate": true
+    },
+    "bcrypt_suffix_2a": {
+        "version": "3.2.11",
+        "normalizer": "patchwork-1.3.2",
+        "original": "Synthetic-Tea-&&&&&&&&&&&&&&",
+        "prepared": "Synthetic-Tea-&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;",
+        "hash": "$2a$10$q96mZblaeDEwupqNFKrMk.2\/tgSgPl12KdC0D9udMIdR1yoDnVUzy",
+        "alternate": "Synthetic-Tea-&&&&&&&&&&&&&&\u00e9",
+        "source_alternate": false
+    }
+}

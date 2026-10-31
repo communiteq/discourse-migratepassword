@@ -33,6 +33,7 @@ enabled_site_setting :migratepassword_enabled
 require 'digest'
 require 'openssl'
 require "base64"
+require_relative 'lib/phpbb_normalizer'
 
   class WordpressHash
     def initialize(stretch=8)
@@ -216,6 +217,7 @@ after_initialize do
       next unless user&.custom_fields&.key?("import_pass")
 
       user.custom_fields.delete("import_pass")
+      user.custom_fields.delete("import_pass_phpbb_profile")
       user.save_custom_fields
     end
 
@@ -225,9 +227,16 @@ after_initialize do
             return false unless SiteSetting.migratepassword_enabled
             return false unless self.custom_fields.has_key?('import_pass')
 
-            if AlternativePassword::check_all(password, self.custom_fields['import_pass'])
+            profile = self.custom_fields['import_pass_phpbb_profile']
+            verified = if self.custom_fields.has_key?('import_pass_phpbb_profile')
+                AlternativePassword::check_phpbb(password, self.custom_fields['import_pass'], profile: profile)
+            else
+                AlternativePassword::check_all(password, self.custom_fields['import_pass'])
+            end
+            if verified
                 self.password = password
                 self.custom_fields.delete('import_pass')
+                self.custom_fields.delete('import_pass_phpbb_profile')
 
                 if SiteSetting.migratepassword_allow_insecure_passwords
                     return save(validate: false)
@@ -236,6 +245,52 @@ after_initialize do
                 end
             end
             false
+        end
+
+        def self.prepare_phpbb_password(password, profile:)
+            return unless profile.is_a?(String)
+            profile, normalizer = profile.split(':', 2)
+            return unless %w[3.0 legacy legacy-bom current].include?(profile)
+            return if profile == '3.0' && normalizer
+            return unless profile == '3.0' || MigratePassword::PhpbbNormalizer::TABLES.key?(normalizer)
+            return unless password.is_a?(String) && password.valid_encoding?
+            return unless password.encoding == Encoding::UTF_8 || password.ascii_only?
+            password = password.encode(Encoding::UTF_8)
+
+            # phpBB's request helper uses ENT_COMPAT (apostrophes are not escaped).
+            # Its database auth provider uses PHP trim, which preserves form feeds.
+            password = password.gsub(/\r\n?|\0/) { |match| match == "\0" ? "" : "\n" }
+            password = password.delete("\uFEFF") if %w[legacy-bom current].include?(profile)
+            password = password.gsub(/[&"<>]/, '&' => '&amp;', '"' => '&quot;', '<' => '&lt;', '>' => '&gt;')
+            password = MigratePassword::PhpbbNormalizer.normalize(password, normalizer) unless profile == "3.0"
+            return '' if %w[legacy legacy-bom].include?(profile) && password.start_with?("\n")
+            password.gsub(/\A[ \t\n\r\0\v]+|[ \t\n\r\0\v]+\z/, '')
+        end
+
+        def self.check_phpbb(password, crypted_pass, profile:)
+            password = prepare_phpbb_password(password, profile: profile)
+            # phpBB's database auth provider rejects PHP-false passwords.
+            return false if password.nil? || password.empty? || password == '0'
+            # PHP hashes bytes; phpass concatenates binary digests with the password.
+            password = password.b
+            return false if crypted_pass.nil? || crypted_pass.empty?
+            if crypted_pass.start_with?('$argon2i$', '$argon2id$')
+                begin
+                    return Argon2::Password.verify_password(password, crypted_pass)
+                rescue
+                    return false
+                end
+            end
+            # Do not try other applications' prehashing schemes for known phpBB hashes.
+            if crypted_pass.length == 60 && crypted_pass.start_with?('$2a$', '$2y$', '$2b$')
+                # phpBB's $2a$ driver rejects a final high-bit byte even beyond bcrypt's 72-byte limit.
+                return false if crypted_pass.start_with?('$2a$') && password.getbyte(-1) >= 128
+                return check_bcrypt(password, crypted_pass.sub(/\A\$2y\$/, '$2a$'))
+            end
+            if crypted_pass.length == 34 && crypted_pass.start_with?('$H$', '$P$')
+                return check_wordpress(password, crypted_pass)
+            end
+            return check_md5(password, crypted_pass)
         end
 
         def self.check_all(password, crypted_pass)

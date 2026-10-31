@@ -1,0 +1,38 @@
+{
+    "nko_ordering_0": {
+        "version": "3.2.8",
+        "normalizer": "patchwork",
+        "original": "Synthetic-a\u0305\u07fd-2026",
+        "prepared": "Synthetic-a\u0305\u07fd-2026",
+        "hash": "$2y$10$2hhmKMRZFT5UnDTeV9SVAOTsCTNCM9qbms0cY7vLff98irfDtaBfe",
+        "alternate": "Synthetic-a\u07fd\u0305-2026",
+        "source_alternate": false
+    },
+    "nko_ordering_1": {
+        "version": "3.2.8",
+        "normalizer": "patchwork",
+        "original": "Synthetic-a\u07fd\u0305-2026",
+        "prepared": "Synthetic-a\u07fd\u0305-2026",
+        "hash": "$2y$10$hdLsmFGHwbez8RC5m3FpHO3MnWJwmpJkQcWwGJMOx5BgzNSQcvWni",
+        "alternate": "Synthetic-a\u0305\u07fd-2026",
+        "source_alternate": false
+    },
+    "malayalam_ordering_0": {
+        "version": "3.2.8",
+        "normalizer": "patchwork",
+        "original": "Synthetic-a\u0305\u0d3b-2026",
+        "prepared": "Synthetic-a\u0305\u0d3b-2026",
+        "hash": "$2y$10$2TIzlU2RFUu0pJ3QXTXfSOqUQm\/fuOOqyfzRYQ7sgSp9tQ\/Mh8ejG",
+        "alternate": "Synthetic-a\u0d3b\u0305-2026",
+        "source_alternate": false
+    },
+    "malayalam_ordering_1": {
+        "version": "3.2.8",
+        "normalizer": "patchwork",
+        "original": "Synthetic-a\u0d3b\u0305-2026",
+        "prepared": "Synthetic-a\u0d3b\u0305-2026",
+        "hash": "$2y$10$Ha21k6KDYG8SH.jl4BjsouFJeiDsRCV89sO.IxPTvTSjO6vElfVG2",
+        "alternate": "Synthetic-a\u0305\u0d3b-2026",
+        "source_alternate": false
+    }
+}

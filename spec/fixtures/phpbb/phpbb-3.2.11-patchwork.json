@@ -1,0 +1,332 @@
+{
+    "ascii_bcrypt": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$2y$10$cNqtNy4NltTJ1PymIzz\/\/uOLRuQMkT9kUDUNBpyd2R8wwbqwGjDNC"
+    },
+    "ascii_bcrypt_2a": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$2a$10$HVbzDI5WQqfWiZf2MWPTxOcVZPIvnVxB7LxUfShQ7TWDqJfQFTfpK"
+    },
+    "ascii_phpass_h": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$H$9BvHf1WfddgFhDWHUiEs1.xjj1ceVl\/"
+    },
+    "ascii_phpass_p": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$P$9tfVHtvv2tRxO6rRE9YMOOJXeWMl\/u."
+    },
+    "html_bcrypt": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea<&\">-2026",
+        "prepared": "Synthetic-Tea&lt;&amp;&quot;&gt;-2026",
+        "hash": "$2y$10$MH5EQWSQuni6k0KQkT2ubu.xiDQ4PkTwTA0Xg4ykZk9YLil1qu9Su"
+    },
+    "html_bcrypt_2a": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea<&\">-2026",
+        "prepared": "Synthetic-Tea&lt;&amp;&quot;&gt;-2026",
+        "hash": "$2a$10$Vos2wT3CvtDOuN\/1AChbCO9AQ.ZzbUGzq44FZC4.CsxTfPJcqnLfW"
+    },
+    "html_phpass_h": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea<&\">-2026",
+        "prepared": "Synthetic-Tea&lt;&amp;&quot;&gt;-2026",
+        "hash": "$H$9zpgCm2.XzTjDlpfofP0JcIStd6BVP0"
+    },
+    "html_phpass_p": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea<&\">-2026",
+        "prepared": "Synthetic-Tea&lt;&amp;&quot;&gt;-2026",
+        "hash": "$P$9SM8JmmRMURW2XfZiv0R8xTZkKlQ6e."
+    },
+    "apostrophe_bcrypt": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic'Tea-2026",
+        "prepared": "Synthetic'Tea-2026",
+        "hash": "$2y$10$yG7fn2q3xP0Vh22goMiPSeECFOgy8hwpahmBx72UG6gr6O.AdsBnK"
+    },
+    "apostrophe_bcrypt_2a": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic'Tea-2026",
+        "prepared": "Synthetic'Tea-2026",
+        "hash": "$2a$10$455h1p9AXI1iB45Q6sFM4.kCufhqWpzolWMHCWzi0LIdyik3jnMnK"
+    },
+    "apostrophe_phpass_h": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic'Tea-2026",
+        "prepared": "Synthetic'Tea-2026",
+        "hash": "$H$9qNRrpBL\/Wcrv8tljpymFcO00lWrtX\/"
+    },
+    "apostrophe_phpass_p": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic'Tea-2026",
+        "prepared": "Synthetic'Tea-2026",
+        "hash": "$P$9K12aZmaNADGtroZykbiKzRJxPErTo0"
+    },
+    "unicode_bcrypt": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Cafe\u0301-2026",
+        "prepared": "Synthetic-Caf\u00e9-2026",
+        "hash": "$2y$10$7eOWY07XUSobLI2V8P0RKexxO.vPP4tisJOAO5nv87xVJ6X6yx6uC"
+    },
+    "unicode_bcrypt_2a": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Cafe\u0301-2026",
+        "prepared": "Synthetic-Caf\u00e9-2026",
+        "hash": "$2a$10$exdTHzKIjSDqgQQv.DwEK.2YCNTi.i8MlG0GR5lit8yeTxFR6Sqza"
+    },
+    "unicode_phpass_h": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Cafe\u0301-2026",
+        "prepared": "Synthetic-Caf\u00e9-2026",
+        "hash": "$H$9lEXZ948VxUWYK0zIe6JcTbdMdfuDx\/"
+    },
+    "unicode_phpass_p": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Cafe\u0301-2026",
+        "prepared": "Synthetic-Caf\u00e9-2026",
+        "hash": "$P$99kJe0ZQmKG1nPjnNMElYdHAqypczh."
+    },
+    "whitespace_bcrypt": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": " \tSynthetic-Tea\r\n2026\u0000\u000b ",
+        "prepared": "Synthetic-Tea\n2026",
+        "hash": "$2y$10$DIKto2uCKufZ5eBSKIXMd.1DvWSjHi1RrlQgIWeV418BngnD5rLLW"
+    },
+    "whitespace_bcrypt_2a": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": " \tSynthetic-Tea\r\n2026\u0000\u000b ",
+        "prepared": "Synthetic-Tea\n2026",
+        "hash": "$2a$10$ov250A3InOylLHQBDDY\/C.Hz4oSPbqI3VWAtB7jjzlaR2s0vJGf0G"
+    },
+    "whitespace_phpass_h": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": " \tSynthetic-Tea\r\n2026\u0000\u000b ",
+        "prepared": "Synthetic-Tea\n2026",
+        "hash": "$H$9DttO8\/HKSIBGSW2PDQcJtANXXIjXB0"
+    },
+    "whitespace_phpass_p": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": " \tSynthetic-Tea\r\n2026\u0000\u000b ",
+        "prepared": "Synthetic-Tea\n2026",
+        "hash": "$P$9ksLQ3UViKgh\/16zIRYyrUjNmO6zX40"
+    },
+    "form_feed_bcrypt": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "\fSynthetic-Tea-2026\f",
+        "prepared": "\fSynthetic-Tea-2026\f",
+        "hash": "$2y$10$GezBfqvVzKz9LQnaZOXpeuWUQ7ikPIyxGxm5s82DAUm07YiesSjv."
+    },
+    "form_feed_bcrypt_2a": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "\fSynthetic-Tea-2026\f",
+        "prepared": "\fSynthetic-Tea-2026\f",
+        "hash": "$2a$10$ej.Vo6Sw4nTFymRKst\/iFeYOAoGk87QngDA1b6xi2\/BSzh3MKqtYO"
+    },
+    "form_feed_phpass_h": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "\fSynthetic-Tea-2026\f",
+        "prepared": "\fSynthetic-Tea-2026\f",
+        "hash": "$H$9uSYqynFbN\/NMaPUFxqUdirT22C0p.."
+    },
+    "form_feed_phpass_p": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "\fSynthetic-Tea-2026\f",
+        "prepared": "\fSynthetic-Tea-2026\f",
+        "hash": "$P$9FRIssj4W5eBZ9dSelxcw7rGcf8XwI."
+    },
+    "carriage_return_bcrypt": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea\r2026",
+        "prepared": "Synthetic-Tea\n2026",
+        "hash": "$2y$10$K49JIrDIV9mplkhkIGw6\/eS0DWaRJtaH0D1bYH9f1aGzcP7jXHd0W"
+    },
+    "carriage_return_bcrypt_2a": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea\r2026",
+        "prepared": "Synthetic-Tea\n2026",
+        "hash": "$2a$10$y.ojBZWcFzevenB\/MVkJve4sfwkXa9lPQu\/xWGdPuVk.SMD85P8pC"
+    },
+    "carriage_return_phpass_h": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea\r2026",
+        "prepared": "Synthetic-Tea\n2026",
+        "hash": "$H$94aw\/4bXVoKrIHZ9lfrDV25Zs57gYm1"
+    },
+    "carriage_return_phpass_p": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea\r2026",
+        "prepared": "Synthetic-Tea\n2026",
+        "hash": "$P$9mOu80HeQg15K8MhsX9Q33eSyCmGqS\/"
+    },
+    "entity_bcrypt": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-&amp;-2026",
+        "prepared": "Synthetic-&amp;amp;-2026",
+        "hash": "$2y$10$ZZ\/aJ2ncIUAP3FXCILLwVeZ6Pla\/V0xu3PT4zvOHA67Fnj9dqNsp."
+    },
+    "entity_bcrypt_2a": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-&amp;-2026",
+        "prepared": "Synthetic-&amp;amp;-2026",
+        "hash": "$2a$10$AfqOgNHl3jM4\/myM\/p8FCeizo10lHn2Zoy0Yk0hDqHsopfPHxDTBW"
+    },
+    "entity_phpass_h": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-&amp;-2026",
+        "prepared": "Synthetic-&amp;amp;-2026",
+        "hash": "$H$9n.GkFXGfocQYfKe5Mdl81P\/IBrzuP\/"
+    },
+    "entity_phpass_p": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-&amp;-2026",
+        "prepared": "Synthetic-&amp;amp;-2026",
+        "hash": "$P$9uhkL7QnQFdQStLqZCniEJPjSPiAa\/\/"
+    },
+    "nbsp_bcrypt": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "\u00a0Synthetic-Tea-2026\u00a0",
+        "prepared": "\u00a0Synthetic-Tea-2026\u00a0",
+        "hash": "$2y$10$GtOhxeIzfKls6d.ByCoeEeE7OYfEk1zrz8Ft04VaVd.SQsaQ\/1oba"
+    },
+    "nbsp_phpass_h": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "\u00a0Synthetic-Tea-2026\u00a0",
+        "prepared": "\u00a0Synthetic-Tea-2026\u00a0",
+        "hash": "$H$96JZBwHtgIF5Pp7Ti4FTxgXYqriA7n0"
+    },
+    "nbsp_phpass_p": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "\u00a0Synthetic-Tea-2026\u00a0",
+        "prepared": "\u00a0Synthetic-Tea-2026\u00a0",
+        "hash": "$P$9T5Oq\/IlgBrAx4gMf9ry4YrlWF\/\/9j1"
+    },
+    "bom_bcrypt": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "\ufeffSynthetic-Tea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$2y$10$lVgwU3GSdX2hIMykAYCdZu3y9QEkqWNZwrob5YDvIpOv1uJleUAhi"
+    },
+    "bom_bcrypt_2a": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "\ufeffSynthetic-Tea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$2a$10$OgS\/6pcxL7R5tgf1C19GV.t\/s59\/Kq9jwcjcmC3tCrfhjFCX50yyO"
+    },
+    "bom_phpass_h": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "\ufeffSynthetic-Tea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$H$9VgSui2Mu5z5uWLInqf60X6f7SVnCt0"
+    },
+    "bom_phpass_p": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "\ufeffSynthetic-Tea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$P$9XDM4zwEhXlL2N\/RXwZkeJyuSITyX51"
+    },
+    "internal_bom_bcrypt": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-\ufeffTea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$2y$10$8cwyTvNRkiMhxxqsT0gab.g...D09d9X6xlWMJC6yqzX7wZ55Wi3G"
+    },
+    "internal_bom_bcrypt_2a": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-\ufeffTea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$2a$10$4Q.7tnWLW5x3lx61pSSPK.6U1pzKKvNfVABwMjvA.82wuo3CKkFU6"
+    },
+    "internal_bom_phpass_h": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-\ufeffTea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$H$9vIDQoOML7UqR12f7ugc3K5ZsrNpG7."
+    },
+    "internal_bom_phpass_p": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-\ufeffTea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$P$91ni0wO0MSKLA9p2SvGGrKsk54KdvW0"
+    },
+    "bom_between_cr_lf_bcrypt": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea\r\ufeff\n2026",
+        "prepared": "Synthetic-Tea\n\n2026",
+        "hash": "$2y$10$HxaVJj.IQJOgacTnQcN\/hu1AsD5HNKPu8PjdOphWuHfbti8Qz3OGy"
+    },
+    "bom_between_cr_lf_bcrypt_2a": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea\r\ufeff\n2026",
+        "prepared": "Synthetic-Tea\n\n2026",
+        "hash": "$2a$10$ZDYYoY4vD9UDkjHB0EAxqu73wuF2ro16iKiu1db7\/FJ1YBwGbWp6e"
+    },
+    "bom_between_cr_lf_phpass_h": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea\r\ufeff\n2026",
+        "prepared": "Synthetic-Tea\n\n2026",
+        "hash": "$H$934s9WqO6lZgmrCV1qTr\/X6hFZ5Kiq1"
+    },
+    "bom_between_cr_lf_phpass_p": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "Synthetic-Tea\r\ufeff\n2026",
+        "prepared": "Synthetic-Tea\n\n2026",
+        "hash": "$P$9DrWZgHVXMTEeQSZlv4KTrKjuv72Sw0"
+    },
+    "space_then_lf_bcrypt": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": " \nSynthetic-Tea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$2y$10$YMC6B6Nfxt5mA7ZRKGSli.7TSUrSvHajb7CErkuE33SYoSuskJ8O2"
+    },
+    "space_then_lf_bcrypt_2a": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": " \nSynthetic-Tea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$2a$10$XuwCai19nDLdM4LgA4TBS.VbBSpamlf33fdtDhFxWuMpcxIOhHbq6"
+    },
+    "space_then_lf_phpass_h": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": " \nSynthetic-Tea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$H$9EaRfnES\/SYZEcH5UT0H6YhE6WFNiY1"
+    },
+    "space_then_lf_phpass_p": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": " \nSynthetic-Tea-2026",
+        "prepared": "Synthetic-Tea-2026",
+        "hash": "$P$9p22p0vFAvB5K6HJltmimOWMkLyYmv\/"
+    },
+    "short_bcrypt": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "a&",
+        "prepared": "a&amp;",
+        "hash": "$2y$10$24L1Nce5N2CHXyBvwNa78e3rVndoylccsSNR6ltofqKLtEkFF4q8y"
+    },
+    "short_bcrypt_2a": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "a&",
+        "prepared": "a&amp;",
+        "hash": "$2a$10$hWam4ZKdyA\/\/eTLrIOzA7eCjS\/nAWcG\/MWSy\/4psqUUioRAx7pnZS"
+    },
+    "short_phpass_h": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "a&",
+        "prepared": "a&amp;",
+        "hash": "$H$9StLFE4uPYBrkqajRaQvNVZojpaqym."
+    },
+    "short_phpass_p": {
+        "profile": "legacy-bom:patchwork-1.3.2",
+        "original": "a&",
+        "prepared": "a&amp;",
+        "hash": "$P$9TZpOI2tx6ChFjGDGv5QZ30VMMzUZr."
+    }
+}
