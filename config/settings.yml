@@ -5,3 +5,8 @@ plugins:
   migratepassword_allow_insecure_passwords:
     default: false
     client: false
+  migratepassword_phpass_minimum_cost:
+    default: 8
+    min: 7
+    max: 30
+    client: false

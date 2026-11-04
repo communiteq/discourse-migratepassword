@@ -2,3 +2,4 @@ en:
   site_settings:
     migratepassword_enabled: 'Enable MigratePassword plugin.'
     migratepassword_allow_insecure_passwords: 'Allow legacy passwords that do not conform to the Discourse password requirements.' 
+    migratepassword_phpass_minimum_cost: 'Minimum cost exponent accepted for imported phpass hashes ($H$ and $P$). The default is 8; set to 7 for legacy cost-7 hashes. This does not change native Discourse password hashing.'
