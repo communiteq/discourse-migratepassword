@@ -1,0 +1,38 @@
+{
+    "H": {
+        "cost7": {
+            "password": "Synthetic-Phpass-2026",
+            "hash": "$H$5abcdefghuvU1taHf9qEL/iJpIxDi01"
+        },
+        "cost8": {
+            "password": "Synthetic-Phpass-2026",
+            "hash": "$H$6abcdefgh6JQovbLGEhHaxJpQN1En81"
+        },
+        "cost9": {
+            "password": "Synthetic-Phpass-2026",
+            "hash": "$H$7abcdefghHllFbjle/UBX1U3bivTvk."
+        },
+        "short": {
+            "password": "Ab7",
+            "hash": "$H$5abcdefgh10rSstbeDbTJCZbdIHXcr."
+        }
+    },
+    "P": {
+        "cost7": {
+            "password": "Synthetic-Phpass-2026",
+            "hash": "$P$5abcdefghuvU1taHf9qEL/iJpIxDi01"
+        },
+        "cost8": {
+            "password": "Synthetic-Phpass-2026",
+            "hash": "$P$6abcdefgh6JQovbLGEhHaxJpQN1En81"
+        },
+        "cost9": {
+            "password": "Synthetic-Phpass-2026",
+            "hash": "$P$7abcdefghHllFbjle/UBX1U3bivTvk."
+        },
+        "short": {
+            "password": "Ab7",
+            "hash": "$P$5abcdefgh10rSstbeDbTJCZbdIHXcr."
+        }
+    }
+}

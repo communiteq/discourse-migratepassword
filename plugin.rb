@@ -35,10 +35,11 @@ require 'openssl'
 require "base64"
 
   class WordpressHash
-    def initialize(stretch=8)
+    def initialize(stretch=8, minimum_cost: 8)
       @itoa64 = './0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
       stretch = 8 unless (8..30).include?(stretch)
       @stretch = stretch
+      @minimum_cost = minimum_cost
       @random_state = '%s%s' % [Time.now.to_f, $$]
     end
 
@@ -68,7 +69,7 @@ require "base64"
       out = '*0'
       out = '*1' if setting.start_with?(out)
       iter = @itoa64.index(setting[3])
-      return out unless (8..30).include?(iter)
+      return out unless (@minimum_cost..30).include?(iter)
       count = 1 << iter
       salt = setting[4...12]
       return out if salt.length != 8
@@ -326,7 +327,7 @@ after_initialize do
         end
 
         def self.check_wordpress(password, crypted_pass)
-            hasher = WordpressHash.new(8)
+            hasher = WordpressHash.new(8, minimum_cost: SiteSetting.migratepassword_phpass_minimum_cost)
             hasher.check(password, crypted_pass.rpartition(':').last)
         end
 
