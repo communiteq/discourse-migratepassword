@@ -1,0 +1,78 @@
+{
+    "H": {
+        "7": {
+            "ascii": {
+                "password": "Independent-Review-2026!",
+                "hash": "$H$5review12BUdnozZlRo5YU6ThkiB8f1"
+            },
+            "unicode": {
+                "password": "Independent-caf\u00e9-2026!",
+                "hash": "$H$5review12vS9bgYS9lck16HwmQQ5MK0"
+            },
+            "decomposed": {
+                "password": "Independent-cafe\u0301-2026!",
+                "hash": "$H$5review12Hx6XV.caVt9FlnouCyuVc0"
+            },
+            "weak": {
+                "password": "\u00e9b7",
+                "hash": "$H$5review12v1gM1N8ZtpvybuwUpxQ2./"
+            }
+        },
+        "8": {
+            "ascii": {
+                "password": "Independent-Review-2026!",
+                "hash": "$H$6review12X1RYO.J/hrT8HeLutTi0K/"
+            },
+            "unicode": {
+                "password": "Independent-caf\u00e9-2026!",
+                "hash": "$H$6review126YPJRVqmyo96gYBUQMygJ1"
+            },
+            "decomposed": {
+                "password": "Independent-cafe\u0301-2026!",
+                "hash": "$H$6review12hwkV86gssmmHj32zokK9q0"
+            },
+            "weak": {
+                "password": "\u00e9b7",
+                "hash": "$H$6review12WskU3WpqzxjXSNrEoJtdv1"
+            }
+        }
+    },
+    "P": {
+        "7": {
+            "ascii": {
+                "password": "Independent-Review-2026!",
+                "hash": "$P$5review12BUdnozZlRo5YU6ThkiB8f1"
+            },
+            "unicode": {
+                "password": "Independent-caf\u00e9-2026!",
+                "hash": "$P$5review12vS9bgYS9lck16HwmQQ5MK0"
+            },
+            "decomposed": {
+                "password": "Independent-cafe\u0301-2026!",
+                "hash": "$P$5review12Hx6XV.caVt9FlnouCyuVc0"
+            },
+            "weak": {
+                "password": "\u00e9b7",
+                "hash": "$P$5review12v1gM1N8ZtpvybuwUpxQ2./"
+            }
+        },
+        "8": {
+            "ascii": {
+                "password": "Independent-Review-2026!",
+                "hash": "$P$6review12X1RYO.J/hrT8HeLutTi0K/"
+            },
+            "unicode": {
+                "password": "Independent-caf\u00e9-2026!",
+                "hash": "$P$6review126YPJRVqmyo96gYBUQMygJ1"
+            },
+            "decomposed": {
+                "password": "Independent-cafe\u0301-2026!",
+                "hash": "$P$6review12hwkV86gssmmHj32zokK9q0"
+            },
+            "weak": {
+                "password": "\u00e9b7",
+                "hash": "$P$6review12WskU3WpqzxjXSNrEoJtdv1"
+            }
+        }
+    }
+}
