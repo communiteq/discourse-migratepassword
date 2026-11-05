@@ -74,7 +74,9 @@ require_relative 'lib/phpbb_normalizer'
       count = 1 << iter
       salt = setting[4...12]
       return out if salt.length != 8
-      hash = Digest::MD5.digest(salt + pw)
+      # Hash bytes without changing the caller's password for native conversion.
+      pw = pw.b
+      hash = Digest::MD5.digest(salt.b + pw)
       while count > 0
         hash = Digest::MD5.digest(hash + pw)
         count -= 1
