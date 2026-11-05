@@ -1,0 +1,82 @@
+{
+  "ascii": {
+    "original": "Synthetic-Tea-2026",
+    "prepared": "Synthetic-Tea-2026",
+    "profile": "legacy:phpbb-bundled"
+  },
+  "html": {
+    "original": "Synthetic-Tea<&\">-2026",
+    "prepared": "Synthetic-Tea&lt;&amp;&quot;&gt;-2026",
+    "profile": "legacy:phpbb-bundled"
+  },
+  "apostrophe": {
+    "original": "Synthetic'Tea-2026",
+    "prepared": "Synthetic'Tea-2026",
+    "profile": "legacy:phpbb-bundled"
+  },
+  "unicode": {
+    "original": "Synthetic-Café-2026",
+    "prepared": "Synthetic-Café-2026",
+    "profile": "legacy:phpbb-bundled"
+  },
+  "whitespace": {
+    "original": " \tSynthetic-Tea\r\n2026\u0000\u000b ",
+    "prepared": "Synthetic-Tea\n2026",
+    "profile": "legacy:phpbb-bundled"
+  },
+  "form_feed": {
+    "original": "\fSynthetic-Tea-2026\f",
+    "prepared": "\fSynthetic-Tea-2026\f",
+    "profile": "legacy:phpbb-bundled"
+  },
+  "carriage_return": {
+    "original": "Synthetic-Tea\r2026",
+    "prepared": "Synthetic-Tea\n2026",
+    "profile": "legacy:phpbb-bundled"
+  },
+  "entity": {
+    "original": "Synthetic-&amp;-2026",
+    "prepared": "Synthetic-&amp;amp;-2026",
+    "profile": "legacy:phpbb-bundled"
+  },
+  "nbsp": {
+    "original": " Synthetic-Tea-2026 ",
+    "prepared": " Synthetic-Tea-2026 ",
+    "profile": "legacy:phpbb-bundled"
+  },
+  "bom": {
+    "original": "﻿Synthetic-Tea-2026",
+    "prepared": "﻿Synthetic-Tea-2026",
+    "profile": "legacy:phpbb-bundled"
+  },
+  "internal_bom": {
+    "original": "Synthetic-﻿Tea-2026",
+    "prepared": "Synthetic-﻿Tea-2026",
+    "profile": "legacy:phpbb-bundled"
+  },
+  "bom_between_cr_lf": {
+    "original": "Synthetic-Tea\r﻿\n2026",
+    "prepared": "Synthetic-Tea\n﻿\n2026",
+    "profile": "legacy:phpbb-bundled"
+  },
+  "leading_lf": {
+    "original": "\nSynthetic-Tea-2026",
+    "prepared": "",
+    "profile": "legacy:phpbb-bundled"
+  },
+  "leading_crlf": {
+    "original": "\r\nSynthetic-Tea-2026",
+    "prepared": "",
+    "profile": "legacy:phpbb-bundled"
+  },
+  "space_then_lf": {
+    "original": " \nSynthetic-Tea-2026",
+    "prepared": "Synthetic-Tea-2026",
+    "profile": "legacy:phpbb-bundled"
+  },
+  "short": {
+    "original": "a&",
+    "prepared": "a&amp;",
+    "profile": "legacy:phpbb-bundled"
+  }
+}
